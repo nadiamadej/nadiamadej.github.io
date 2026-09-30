@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 631 253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-555.11416,-1286.860517)">
+        <g id="polkola">
+            <path d="M683,1535C686.583,1535.476 558.437,1522.081 557,1417C555.634,1317.123 683.803,1299.701 685,1296C686.5,1291.362 683,1535 683,1535Z" style="fill:none;stroke:rgb(202,30,7);stroke-width:3.75px;"/>
+            <path d="M684.322,1434.271C701.357,1500.974 804.393,1544.373 805,1536C805.842,1524.382 807,1295 807,1295C807,1295 703.497,1314.365 684.799,1392.272" style="fill:none;stroke:rgb(202,30,7);stroke-width:3.75px;"/>
+            <path d="M935,1289C927.896,1284.864 811.974,1329.427 811,1409C810.22,1472.758 914.621,1541.324 932,1536C940.791,1533.307 935,1289 935,1289Z" style="fill:none;stroke:rgb(202,30,7);stroke-width:3.75px;"/>
+            <path d="M936.871,1437.521C961.087,1493.646 1051.747,1543.274 1059,1535L1059,1290C1055.857,1286.512 960.88,1322.468 936.567,1383.425" style="fill:none;stroke:rgb(202,30,7);stroke-width:3.75px;"/>
+            <path d="M1181,1289C1181,1289 1075.654,1317.871 1064.593,1393.408C1053.532,1468.945 1123.927,1533.202 1183,1532C1184.947,1531.96 1181,1289 1181,1289Z" style="fill:none;stroke:rgb(202,30,7);stroke-width:3.75px;"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,778 @@
+@charset "UTF-8";
+
+
+
+/* @FONT FACE (enable the use of 'custom fonts' inside your document) */
+
+/* 
+  You can use 'fontsquirrel' (https://www.fontsquirrel.com) 
+  or 'transfonter' (https://transfonter.org)
+  to generate your own font for the web from .ttf or .oft files 
+*/
+
+
+@font-face {
+    font-family: 'Your Font Name';
+    src: url('../fonts/yourfontname/yourfontname-italic.woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: block;
+}
+
+@font-face {
+  font-family: 'jacquard_12_chartedregular';
+  src: url('jacquard12charted-regular-webfont.woff2') format('woff2'),
+       url('jacquard12charted-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/* VARIABLES */
+
+:root {
+  /* Color values */
+  --color-background: rgb(255, 250, 175);
+  --color-text: rgb(89, 38, 6);
+  --color-text-link: rgba(114, 58, 23);
+  --color-text-link-hover: rgba(0,0,255,0.4);
+  /* Font values */
+  --font-text: 'Helvetica', 'Arial', sans-serif;
+  --font-size: 24px;
+  /* Margin value: single source of truth for left/right spacing,
+     used by both the top menu and the page wrapper so they always match.
+     Never smaller than 1rem, never bigger than 4rem, scales in between. */
+  --side-margin: clamp(1rem, 5vw, 4rem);
+  /* Height of the sticky top menu, used to stop it covering anchor targets
+     when jumping to a project via a link. */
+  --menu-height: 3.5rem;
+  /* Height of the image area in each gallery (images are the main content) */
+  --gallery-height: 82vh;
+}
+
+
+
+/* GENERAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font: var(--font-size) var(--font-family);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+/* jump targets land below the sticky top menu instead of hiding behind it */
+.project,
+nav#projects {
+  scroll-margin-top: var(--menu-height);
+}
+
+body {
+  position:relative;
+  margin: 0;
+  background-color: var(--color-background);
+  font: var(--font-size) var(--font-family);
+  color: var(--color-text);
+  width:100%;
+  height:auto;
+  overflow-y:auto;
+  overflow-x: auto;
+  z-index: 10;
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+
+h1{
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  text-align: right;
+}
+
+h2{
+  font-size: 30px;
+  text-align: right;
+  font-weight: lighter;
+  color: #ea1818;
+}
+
+h3{
+  font-size: 80px;
+  text-align: right;
+}
+
+h4, h5, h6{
+  /* h4-h5-h6 style */
+}
+
+p{
+  font-size: 25px;
+  text-align: left;
+}
+
+ol, ul{
+  /* ordered list and unordered list styles */
+}
+
+blockquote{
+  /* blockquote element style */
+}
+
+hr{
+  /* horizontal rule style */
+}
+
+/* top menu spans the full width of the viewport edge-to-edge,
+   but its text only gets a margin/padding on the right side */
+.top-menu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3rem;
+  padding: 0.5rem var(--side-margin) 0.5rem 0; /* top right bottom left -- no left padding */
+  border-bottom: 1px solid #000;
+  position: sticky;
+  top: 0;
+  background: #ea1818;
+  z-index: 100;
+
+}
+
+.top-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.top-menu a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: bisque;
+}
+
+.top-menu a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+/* return-to-top arrow: fixed in the left margin, click target is ~20rem
+   wide so it's easy to reach, even though the visible arrow is smaller */
+.back-to-top {
+  position: fixed;
+  left: 0;
+  top: 90%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  width: 20rem;
+  max-width: 40vw;
+  padding-left: 0.5rem;
+  text-decoration: none;
+  z-index: 90;
+}
+
+.arrow-shape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-background);
+  color: var(--color-text-link);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.arrow-shape::before {
+  content: "\2191"; /* ↑ */
+}
+
+.back-to-top:hover .arrow-shape {
+  color: var(--color-text-link-hover);
+}
+
+
+
+/* JUMP TO PROJECT MENU: small, quiet, collapsed until clicked */
+
+.jump-menu {
+  margin: 0 0 1rem;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.jump-menu summary {
+  display: inline-block;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.7rem;
+}
+
+.jump-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.jump-menu summary::after {
+  content: " \2193"; /* ↓ */
+}
+
+.jump-menu details[open] summary::after {
+  content: " \2191"; /* ↑ */
+}
+
+.jump-menu summary:hover {
+  color: var(--color-text-link-hover);
+}
+
+.jump-menu ul {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+}
+
+.jump-menu li {
+  margin: 0.15rem 0;
+}
+
+.jump-menu a {
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
+.jump-menu a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* PROJECTS
+   each project = a title row (click to open the description) + a big gallery */
+
+.project {
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  /* two columns: photos on the left, title + description on the right */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max(25vw, 16rem);
+  column-gap: 2rem;
+  align-items: start;
+}
+
+/* right column: title row (always visible) with the description opening under it */
+.project-details {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* title row: title on the left, round arrow on the right */
+summary.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+summary.project-header::-webkit-details-marker {
+  display: none;
+}
+
+summary.project-header h2 {
+  margin: 0;
+  text-align: left;
+}
+
+/* round arrow, pointing down (collapsed) or up (expanded) */
+.toggle-arrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-text-link);
+  background: var(--color-background);
+  color: var(--color-text-link);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.toggle-arrow::before {
+  content: "\2193"; /* ↓ */
+}
+
+details[open] > summary .toggle-arrow::before {
+  content: "\2191"; /* ↑ */
+}
+
+summary.project-header:hover .toggle-arrow {
+  color: var(--color-text-link-hover);
+  border-color: var(--color-text-link-hover);
+}
+
+summary.project-header:focus-visible {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 4px;
+}
+
+/* the description that opens under the title */
+.project-text {
+  margin: 1rem 0 0;     /* width is set by the right grid column (~1/4 of the screen) */
+}
+
+.project-text p {
+  margin: 0 0 0.75rem;
+}
+
+
+
+/* GALLERY
+   swipeable / arrow-driven row of photos, one photo visible at a time,
+   using the full width of the page */
+
+.gallery {
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: 0;
+}
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;          /* hide scrollbar (Firefox) */
+  -ms-overflow-style: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;                  /* hide scrollbar (Chrome / Safari) */
+}
+
+.gallery-track:focus-visible {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 4px;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  height: var(--gallery-height);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* small arrows + counter, centered under the photo */
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.gallery-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-text-link);
+  background: var(--color-background);
+  color: var(--color-text-link);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-btn:hover:not(:disabled) {
+  color: var(--color-text-link-hover);
+  border-color: var(--color-text-link-hover);
+}
+
+.gallery-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.gallery-count {
+  min-width: 3.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* a project with only one photo needs no arrows */
+.gallery.is-single .gallery-controls {
+  display: none;
+}
+
+
+
+/* PAGE STYLES */
+
+/* page structure */
+
+div.page-wrapper {
+  /* the element that 'wraps' everything, margin from both left and right */
+  margin: 0 var(--side-margin);
+}
+
+/* navigation */
+ 
+nav{
+  
+}
+
+/* content */
+
+main{
+ 
+}
+
+summary{
+  
+}
+
+/* about page: one image + short text, side by side on wide screens,
+   stacked automatically on narrow ones */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-content figure {
+  flex: 1 1 280px;
+  max-width: 400px;
+  margin: 0;
+}
+
+.about-content img {
+  display: block;
+  width: 80%;
+  height: auto;
+  border: red;
+  border-image-width: 10px;
+  border:solid;
+}
+
+.about-content .about-text {
+  flex: 1 1 280px;
+}
+
+.about-content .about-text p {
+  text-align: left;
+}
+
+/* contact page: just email + instagram, given some breathing room */
+.contact-content {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-content p {
+  margin: 0;
+}
+
+
+
+
+
+
+/* UTILITY CLASSES */
+
+/* hide desktop mobile etc */
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* respect people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+
+
+
+
+/* WEBSITE MEDIA QUERIES */
+
+/* responsive typeface for various breaking points, sets the default 'rem' value */
+@media (max-width: 299px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 21px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1201px) and (max-width: 1320px) { :root{--font-size: 22px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1321px) { :root{--font-size: 24px;} html, body {font: var(--font-size) var(--font-text); } }
+
+/* styles for 'mobile', screen sizes up to 779px, should covers 'mobile' and 'tablet' */
+/* style this one first and then use the subsequent ones in a cascading way (from general to specific) */
+
+@media (max-width: 779px) {
+
+  /* your 'mobile' overriding css properties here */
+
+  /* a little less tall on phones so the arrows stay in view */
+  :root {
+    --gallery-height: 68vh;
+  }
+
+  /* single column on phones: title + description, then the photos below */
+  .project {
+    display: block;
+  }
+
+  .gallery {
+    margin-top: 1.5rem;
+  }
+
+  /* utility classes, mobile */
+
+  .desktop-only{
+    display:none;
+  }
+
+  .mobile-only{
+    display:block;
+  }
+
+  /* the 20rem click area is too wide for small screens, shrink it down
+     so it doesn't sit on top of the content */
+  .back-to-top {
+    width: 4rem;
+    max-width: 15vw;
+    padding-left: 0.5rem;
+  }
+
+}
+
+
+
+/* use this query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
+
+@media (max-width: 339px) {
+
+  /* your overriding css properties here */
+
+}
+
+
+
+/* use this query to apply style changes for 'mobile' screen sizes that are flipped in 'landscape' mode */
+
+@media (max-width: 779px) and (orientation: landscape) {
+
+   /* your overriding css properties here */
+
+  :root {
+    --gallery-height: 80vh;
+  }
+
+}
+
+
+
+/* use this query to apply style for 'small' desktop screens */
+
+@media (min-width: 780px) and (max-width: 992px) {
+
+  /* your overriding css properties here */
+
+}
+
+/* =========================================================
+   VECTOR ARTWORK
+   Original SVG shown without animation or visible container.
+   ========================================================= */
+
+.living-vectors {
+  width: 100vw;
+  margin-left: calc(-1 * var(--side-margin));
+  margin-top: 1.25rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  pointer-events: none;
+  position: relative;
+}
+
+.living-vectors__field {
+  width: 100%;
+}
+
+.living-vectors__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+@media (max-width: 779px) {
+  .living-vectors {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.living-vectors__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+
+  transform-origin: center center;
+  animation: vector-movement 6s ease-in-out infinite;
+}
+
+/* =========================================================
+   SKETCH BUTTON (main page) + SKETCH PAGE
+   Paste this at the very bottom of assets/css/style.css
+   ========================================================= */
+
+/* button on the main page: top right, above the h1 */
+.sketch-button-wrap {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.sketch-button {
+  display: inline-block;
+  padding: 0.3rem 1.1rem;
+  border: 1px solid var(--color-text-link);
+  border-radius: 999px;
+  background: var(--color-background);
+  color: var(--color-text-link);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.sketch-button:hover {
+  color: var(--color-text-link-hover);
+  border-color: var(--color-text-link-hover);
+  text-decoration: none;
+}
+
+/* sketch page: the window itself doesn't scroll, only the columns do */
+body.sketch-page {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sketch-page .page-wrapper {
+  flex: 1;
+  min-height: 0;                 /* lets the grid shrink so columns can scroll */
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 2 * var(--side-margin));
+}
+
+/* small title at the top of the page */
+.sketch-page h1.sketch-title {
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* three columns, ratio 35 : 25 : 40 */
+.sketch-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 35fr 25fr 40fr;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* each column scrolls on its own */
+.sketch-col {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-link) transparent;
+}
+
+.sketch-col:focus-visible {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 4px;
+}
+
+.sketch-item {
+  margin: 0 0 1.5rem;
+}
+
+.sketch-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* empty placeholders (no image yet) show as an outlined box */
+.sketch-item img[src=""] {
+  min-height: 60vh;
+  border: 1px solid var(--color-text-link);
+}
+
+/* phones: stack the columns, each one keeps its own scrolling area */
+@media (max-width: 779px) {
+  body.sketch-page {
+    height: auto;
+    overflow: auto;
+  }
+
+  .sketch-grid {
+    display: block;
+  }
+
+  .sketch-col {
+    height: 70vh;
+    margin-bottom: 1.5rem;
+  }
+}

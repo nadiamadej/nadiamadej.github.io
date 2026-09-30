@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+		<!-- meta tags, fill them with website meta infos -->
+		<meta name="description" content="Portfolio Website of Nadia Madej" />
+		<meta name="keywords" content="Portfolio, Graphic Design, Publications "/>
+		<meta name="author" content="Nadia Madej, graphic design portfolio" />
+
+		<!-- favicon, fill with a 512x512px .png image named 'favicon.png' -->
+		<link rel="icon" href="assets/images/favicon/favicon.png"/>
+
+		<!-- website title, visible in the browser window and on link sharing -->
+		<title>nadia_madej_graphics</title>
+
+		<!-- css -->
+		<link rel="stylesheet" href="assets/css/normalize.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<!-- js -->
+		<script type="text/javascript" src="assets/js/script.js"></script>
+		<!-- gallery arrows + jump menu (new file) -->
+		<script type="text/javascript" src="assets/js/gallery.js" defer></script>
+
+	</head>
+
+	<body>
+
+		<!-- top menu bar -->
+		<nav class="top-menu">
+			<ul>
+				<li><a href="index.html">Main</a></li>
+				<li><a href="about.html">About/Contact</a></li>
+				<li><a href="sketch.html">Sketchbook</a></li>
+			</ul>
+		</nav>
+
+		<!-- return to top -->
+		<a href="#top" class="back-to-top" aria-label="Back to top of page">
+			<span class="arrow-shape"></span>
+		</a>
+
+		<div class="page-wrapper">
+
+			<header>
+
+				<p> nadia_madej<br> portfolio </p>
+				
+				<h1><em>publishing / editorial / typography</em></h1>
+
+				<!-- quiet, collapsed menu: click 'jump to project' to see the list -->
+				<nav id="projects" class="jump-menu">
+					<details>
+						<summary>jump to project</summary>
+						<ul>
+							<li><a href="#project-1">Reality Design Day</a></li>
+							<li><a href="#project-2">Royal Academy of Arts—Workshops Campaigns</a></li>
+							<li><a href="#project-3">Wonders of the World</a></li>
+							<li><a href="#project-4">A Catalogue for an online Antique Bookshop</a></li>
+							<li><a href="#project-5">From Hand to hand</a></li>
+						</ul>
+					</details>
+				</nav>
+
+			</header>
+
+
+			<!-- living vector box: decorative strip between the project menu and projects -->
+			<section class="living-vectors" aria-label="Vector artwork">
+				<div class="living-vectors__field">
+					<img src="assets/images/svg/graphics_website5_individual-animation.svg" alt="" class="living-vectors__art">
+				</div>
+			</section>
+
+			<main>
+
+				<!--
+					HOW EACH PROJECT WORKS
+					- the title row is the only thing visible; click it (or the arrow) to open the description
+					- the gallery below it holds any number of <figure class="slide"> items
+					- add or remove <figure class="slide"> lines freely, the arrows and counter adapt
+				-->
+
+				<section class="project" id="project-1">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of Reality Design Day">
+							<h2>Reality Design Day</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description">Visual campaign made for the Reality Design Day in the Royal Academy of Arts in The Hague.
+							<br> An event showcasing internship presentations of students from the 4th year of Graphic Design department in the art academy.
+							<br> Poster + Instagram post
+							<br> November 2024
+							</p>
+							<p></p>
+						</div>
+					</details>
+
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of Reality Design Day">
+							<figure class="slide"><img src="assets/images/poster_realityDay/realityday_Poster ZOOM.jpg" alt="Project 1, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/poster_realityDay/realityday_Poster.jpg" alt="Project 1, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/poster_realityDay/insta.png" alt="Project 1, photo 2" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+
+				<section class="project" id="project-2">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of Royal Academy of Arts—Workshops Campaigns">
+							<h2>Royal Academy of Arts—Workshops Campaigns</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description">A series of visual campaigns and communication made for the Royal Academy of Arts’s workshop facilities. 
+								Published and posted on social media as well as the Academy’s student portal</p>
+							<p>Created between February 2023—September 2025</p>
+						</div>
+					</details>
+
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of Royal Academy of Arts—Workshops Campaigns">
+							<figure class="slide"><img src="assets/images/workshops_communication/im2.jpg" alt="Project 2, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/workshops_communication/EarthDay.jpg" alt="Project 2, photo 2" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/workshops_communication/studenttips2.jpg" alt="Project 2, photo 3" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/workshops_communication/newstudent2.jpg" alt="Project 2, photo 4" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/workshops_communication/newstudent1.jpg" alt="Project 2, photo 5" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/workshops_communication/AI_RENTAL2 copy.jpg" alt="Project 2, photo 6" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+
+				<section class="project" id="project-3">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of Wonders of the World">
+							<h2>Wonders of the World</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description">Through a meditative practise of entangling the images together, the author explores the connection 
+								between humans and nature. The outcomes are woven collages put together in the order of the original magazine pages, showing 
+								the front (A) and back (B) of the individual page.
+								</p>
+							<p>This publication contains collages made by using images from the National Geographic magazine titled Wonders of the World, printed in 2018.</p>
+						</div>
+					</details>
+
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of Wonders of the World">
+							<figure class="slide"><img src="assets/images/national_geographic/1.jpg" alt="Project 3, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/national_geographic/spread.jpg" alt="Project 3, photo 2" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/national_geographic/flam.jpg" alt="Project 3, photo 3" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/national_geographic/7.jpg" alt="Project 3, photo 4" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+
+				<section class="project" id="project-4">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of project 4">
+							<h2>A Catalogue for an online Antique Bookshop</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description">A visual system and a printed publication containing around a hundred books 
+								and/or printed matter. The catalogue presenting a selection of books for the new season designed to 
+								be sent to potential buyers in the season of Spring/Summer collection 2026. </p>
+							<p>Designed sections also showcase custom made glyphs and colour coded columns presenting additional details/specs.
+								printed and online version
+									May 2026</p>
+									<p>The online Catalogue available at: <a href="https://historiamundi.pl/pl/content/32-katalog-wiosna-2026" target="_blank" rel="noopener noreferrer">https://historiamundi.pl/pl/content/32-katalog-wiosna-2026</a></p>
+						</div>
+					</details>
+
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of project 4">
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/cover.jpg" alt="Project 4, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/7.png" alt="Project 4, photo 2" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/1.jpg" alt="Project 4, photo 3" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/2.jpg" alt="Project 4, photo 4" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/3.jpg" alt="Project 4, photo 5" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/5.jpg" alt="Project 4, photo 6" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/flow3.png" alt="Project 4, photo 8" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/katalog_historiaMundi/flow2.png" alt="Project 4, photo 9" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+
+				<section class="project" id="project-5">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of project 5">
+							<h2>From Hand to hand</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description">
+								From hand to hand explores how graphic design can be used as a tool to synthesize 
+								singular stories into a collective base of knowledge and a comprehensive visual archive. The publication 
+								reimagines Femmage (feminine+collage) in the context of graphic design, 
+								by developing a visual language that weaves content ranging from feminist magazines and archival images 
+								into bigger narratives. Amongst the main contents of the book, 
+								there are the author's original entries—footage from a series of embroidery workshops organised for the 
+								students of the KABK.
+
+								A coded website presenting my bachelor thesis in an online environment is available to view at:
+								 https://kabk.github.io/go-theses-25-nadia-madej/
+								<p></p>
+								</p>
+							<p>December—July 2025</p>
+						</div>
+					</details>
+
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of project 5">
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1a.jpg" alt="Project 5, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1b.jpg" alt="Project 5, photo 2" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1c.jpg" alt="Project 5, photo 3" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1d.jpg" alt="Project 5, photo 4" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1e.jpg" alt="Project 5, photo 5" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1f.jpg" alt="Project 5, photo 6" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/from_hand_to_hand/1g.jpg" alt="Project 5, photo 7" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+<!--
+				<section class="project" id="project-6">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of project 6">
+							<h2>Type Design</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description"></p>
+							
+						</div>
+					</details>
+				
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of project 6">
+							<figure class="slide"><img src="" alt="Project 6, photo 1"></figure>
+							<figure class="slide"><img src="" alt="Project 6, photo 2" loading="lazy"></figure>
+							<figure class="slide"><img src="" alt="Project 6, photo 3" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+
+				<section class="project" id="project-7">
+					<details class="project-details">
+						<summary class="project-header" aria-label="Show description of project 7">
+							<h2>project 7</h2>
+							<span class="toggle-arrow"></span>
+						</summary>
+						<div class="project-text">
+							<p class="short-description">Short summary of project 7 goes here — a sentence or two describing the piece.</p>
+							<p>Full description of project 7 goes here — more detail about the process, materials, and context.</p>
+						</div>
+					</details>
+
+					<div class="gallery">
+						<div class="gallery-track" tabindex="0" aria-label="Photos of project 7">
+							<figure class="slide"><img src="assets/images/project-7/photo-1.jpg" alt="Project 7, photo 1"></figure>
+							<figure class="slide"><img src="assets/images/project-7/photo-2.jpg" alt="Project 7, photo 2" loading="lazy"></figure>
+							<figure class="slide"><img src="assets/images/project-7/photo-3.jpg" alt="Project 7, photo 3" loading="lazy"></figure>
+						</div>
+						<div class="gallery-controls">
+							<button type="button" class="gallery-btn gallery-prev" aria-label="Previous photo">&larr;</button>
+							<span class="gallery-count" aria-live="polite"></span>
+							<button type="button" class="gallery-btn gallery-next" aria-label="Next photo">&rarr;</button>
+						</div>
+					</div>
+				</section>
+				-->
+
+			</main>
+
+			<footer>
+
+				<hr>
+
+				<p>
+					Last edit date: 28/09/2026
+				</p>
+
+			</footer>
+
+		</div>
+
+	</body>
+
+</html>
